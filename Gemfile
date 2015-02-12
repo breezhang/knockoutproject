@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass',:path=> "lib\\bootstrap-sass"
+gem 'knockoutjs-rails',:path=>'lib\\knockoutjs-rails'
+
+
 gem 'rails', '3.2.21'
 
 # Bundle edge Rails instead:
