@@ -2,7 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-#console.log(1)
+
+MyViewModel = () ->
+  buyer:
+    name: 'Franklin'
+    credits: 250
+  seller:
+    name: 'Mario'
+    credits: 5800
+
 
 $ ->
-  $('#x').load("/fuck",()->console.log(22))
+  $.get("/fuck").done (d) ->
+    $("#x").after(d)
+    ko.applyBindings(new MyViewModel(),$("#list_main")[0]) if MyViewModel
+
+
+
+
+
+
