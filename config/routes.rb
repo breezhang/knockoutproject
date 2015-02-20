@@ -1,8 +1,12 @@
 Backboneproject::Application.routes.draw do
 
+ # get "flatarrow/testone"
+
   root :to => 'welcome#main'
 
-  get "/fuck", :to => redirect("/assets/menu.html"), via: [:get, :post]
+  get "/fuck", to: redirect("/assets/menu.html"), via: [:get, :post]
+
+  match '/testone', to: "flatarrow#testone",via: [:get,:post]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

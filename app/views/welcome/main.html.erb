@@ -1,3 +1,5 @@
+<%= javascript_include_tag "knockout" %>
+<%= javascript_include_tag "wecome" %>
 <h3>show some debug information</h3>
 
 <h3><%= controller_name.to_s + "#" +action_name.to_s %></h3>
@@ -65,6 +67,39 @@
           viewModel.shouldShowMessage(false);
       }
 
-
   })
 </script>
+
+<p id="bree1">
+  <span data-bind="text:name"></span>
+  <span data-bind="text:age"></span>
+</p>
+
+
+
+<ul data-bind="foreach: sexs" id="array_001">
+  <li>
+    The current item is: <b data-bind="text: $data"></b>
+  </li>
+</ul>
+
+<div data-bind="attr: {class:row}" id="bree2">
+   <div   data-bind="attr: {class:span}"><p>111111111111111</p></div>
+   <div   data-bind="attr: {class:span}"><p>222222222222222</p></div>
+   <div   data-bind="attr: {class:span}"><p>333333333333333</p></div>
+</div>
+
+<script type="text/javascript">
+    ko.applyBindings({
+        months: [ 'Jan', 'Feb', 'Mar', 'etc'],
+        sexs: ['a','b']
+    },$("#array_001")[0]);
+</script>
+
+
+
+<ul data-bind="foreach: list" id="bree3">
+  <li>The value <span data-bind="text: $data"></span></li>
+  <li>The index is <span data-bind="text: $index"></span></li>
+</ul>
+

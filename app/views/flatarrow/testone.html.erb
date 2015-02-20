@@ -1,0 +1,56 @@
+
+<h3>Flatarrow#testone</h3>
+<p>Find me in app/views/flatarrow/testone.html.erb</p>
+
+<button id="bun001" class="btn-primary" data-bind="click:clickhandle">OK <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <span  data-bind="text: click_number"></span></button>
+
+
+<%= javascript_include_tag "knockout" %>
+<%= javascript_include_tag "ver" %>
+<%= javascript_include_tag "flatarrow" %>
+<%= javascript_include_tag "foo/koko" %>
+
+
+<div style="height: 40px"></div>
+<div id="event_001" class="panel-primary ">
+  <div class="panel-heading">
+    show some event
+  </div>
+
+  <div class="panel-body" id="event_002">
+    <ul class="list-group">
+      <li class="list-group-item " data-bind="event : {mouseover: enableDetails, mouseout: disableDetails}">1</li>
+      <li class="list-group-item " data-bind="event : {mouseover: enableDetails, mouseout: disableDetails}">2</li>
+      <li class="list-group-item"  data-bind="event : {mouseover: enableDetails, mouseout: disableDetails}">3</li>
+    </ul>
+  </div>
+
+  <div class="panel-footer">
+    footer
+  </div>
+
+</div>
+
+
+<form data-bind="submit: doSomething" id="submit_002" action="/testone" method="post" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile" name="dummyfile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="check_state"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
