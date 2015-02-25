@@ -1,6 +1,9 @@
 Backboneproject::Application.routes.draw do
 
- # get "flatarrow/testone"
+
+  match '/testtwo', to: "another#foobar", via: [:get, :post]
+
+  # get "flatarrow/testone"
 
   root :to => 'welcome#main'
 

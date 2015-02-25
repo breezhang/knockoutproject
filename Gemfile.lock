@@ -1,4 +1,9 @@
 PATH
+  remote: lib\underscore-rails
+  specs:
+    underscore-rails (1.7.0)
+
+PATH
   remote: lib\knockoutjs-rails
   specs:
     knockoutjs-rails (3.2.0)
@@ -128,3 +133,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  underscore-rails!

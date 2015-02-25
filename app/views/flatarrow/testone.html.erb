@@ -54,3 +54,18 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+<p data-bind="foo: hehe " id="chandle"></p>
+
+<ul data-bind="foreach: products" id="4567890">
+  <li class="product">
+    <strong data-bind="text: name"></strong>
+    <like-widget params="value: userRating"></like-widget>
+  </li>
+</ul>
+
+
+
+<ul data-bind="foreach: p" id="fortest001">
+  <li data-bind="text: $data"></li>
+</ul>

@@ -52,3 +52,66 @@ $ ->
 #
 #$ ->
 #  ko.applyBindings(new submitmsg(),$("#submit_002")[0])
+
+
+ko.bindingHandlers.foo =
+  init: (element, valueAccessor, allBindings, viewModel, bindingContext)->
+    console.log $(element)
+    value = ko.unwrap(valueAccessor());
+    console.log("%o ", viewModel)
+  update: (el, va, a, v, b)->
+
+
+class  foobar
+  constructor: (@hehe) ->
+
+$ ->
+  ko.applyBindings(new foobar("hehe"), $("#chandle")[0])
+
+#=====================================================
+
+
+Foobars =
+  p: [1, 2, 3, 4, 5]
+
+
+
+console.log(Foobars)
+
+$ ->
+  ko.applyBindings(Foobars, $("#fortest001")[0])
+
+#================================
+#ko.components.register 'like-widget',
+#  viewModel: (params) ->
+#    # Data: value is either null, 'like', or 'dislike'
+#    @chosenValue = params.value
+#    # Behaviors
+#    @like = (->
+#      @chosenValue 'like'
+#      return
+#    ).bind(this)
+#    @dislike = (->
+#      @chosenValue 'dislike'
+#      return
+#    ).bind(this)
+#    return
+#  template: '<div class="like-or-dislike" data-bind="visible: !chosenValue()">            <button data-bind="click: like">Like it</button>            <button data-bind="click: dislike">Dislike it</button>        </div>        <div class="result" data-bind="visible: chosenValue">            You <strong data-bind="text: chosenValue"></strong> it        </div>'
+
+
+#Product = (name, rating) ->
+#  @name = name
+#  @userRating = ko.observable(rating or null)
+#  return
+#
+#MyViewModel = ->
+#  @products = [
+#    new Product('Garlic bread')
+#    new Product('Pain au chocolat')
+#    new Product('Seagull spaghetti', 'like')
+#  ]
+#  return
+#
+#
+#$ ->
+#  ko.applyBindings(new MyViewModel ,$("#4567890")[0]);
