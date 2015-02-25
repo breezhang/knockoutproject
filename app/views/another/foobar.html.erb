@@ -1,0 +1,62 @@
+<h1>Another#foobar</h1>
+<p>Find me in app/views/another/foobar.html.erb</p>
+
+<h1>People</h1>
+
+<ul data-bind="template: { name: 'peopleList' }"></ul>
+
+<script type="text/html" id="peopleList">
+  {{ _.each(people(), function(person) { }}
+  <li>
+    <b data-bind="text: person.name"></b> is {{= person.age }} years old
+  </li>
+  {{ }) }}
+</script>
+
+<p>
+  This shows that you can use both Underscore-style evaluation ( &lt;% ... %> ) <em>and</em> data-bind attributes in the
+  same templates.</p>
+
+<%= javascript_include_tag "knockout" %>
+<%= javascript_include_tag "another" %>
+<%= javascript_include_tag "underscore" %>
+
+<script type="application/javascript">
+    /* ---- Begin integration of Underscore template engine with Knockout. Could go in a separate file of course. ---- */
+    ko.underscoreTemplateEngine = function () {
+    }
+    ko.underscoreTemplateEngine.prototype = ko.utils.extend(new ko.templateEngine(), {
+        renderTemplateSource: function (templateSource, bindingContext, options) {
+            // Precompile and cache the templates for efficiency
+            var precompiled = templateSource['data']('precompiled');
+            if (!precompiled) {
+                _.templateSettings = {
+                    interpolate: /\{\{=(.+?)\}\}/g,
+                    escape: /\{\{-(.+?)\}\}/g,
+                    evaluate: /\{\{(.+?)\}\}/g
+                };
+                //_.template("hello <?= name ?>", {"name": "Mike"}, {"interpolate": /<?=([\s\S]+?)%>/g) ?>})
+                precompiled = _.template("{{ with($data) { }} " + templateSource.text() + " {{ } }}");
+                templateSource['data']('precompiled', precompiled);
+            }
+            // Run the template and parse its output into an array of DOM elements
+            var renderedMarkup = precompiled(bindingContext).replace(/\s+/g, " ");
+            return ko.utils.parseHtmlFragment(renderedMarkup);
+        },
+        createJavaScriptEvaluatorBlock: function (script) {
+            return "{{= " + script + " }}";
+        }
+    });
+    ko.setTemplateEngine(new ko.underscoreTemplateEngine());
+    /* ---- End integration of Underscore template engine with Knockout ---- */
+
+    var viewModel = {
+        people: ko.observableArray([
+            {name: 'Rod', age: 123},
+            {name: 'Jane', age: 125},
+        ])
+    };
+
+    ko.applyBindings(viewModel);
+
+</script>
