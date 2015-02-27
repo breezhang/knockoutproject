@@ -1,0 +1,16 @@
+<h1>Coffeetwo#one</h1>
+<p>Find me in app/views/coffeetwo/one.html.erb</p>
+
+<% content_for :jslib do %>
+    <%= javascript_include_tag 'coffeetwo' %>
+<% end %>
+
+<% content_for :onetable do %>
+
+    <% if @sex > 10 %>
+        <%= render "coffeetwo/componet/a" %>
+    <% else %>
+        <%= render "coffeetwo/componet/b" %>
+    <% end %>
+
+<% end %>

@@ -3,13 +3,14 @@
 
 <% imags1= Base64.strict_encode64(Rails.application.assets['success-icon.png'].to_s) %>
 
-<%= imags1 %>
-
 <script>
     window.god = "<%=imags1 %>"
 </script>
 
-<img src=<%= "data:image/png;base64," + imags1 %>/>
+<img src="<%= "data:image/png;base64," + imags1 %>"/>
+
+<%= image_tag("success-icon.png") %>
+
 
 <p>Find me in app/views/another/foobar.html.erb</p>
 

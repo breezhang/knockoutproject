@@ -1,6 +1,10 @@
 Backboneproject::Application.routes.draw do
 
 
+  get "coffeetwo/one"
+
+  match '/test3', to: 'coffeetwo#one', via: [:poat, :get]
+
   match '/testtwo', to: "another#foobar", via: [:get, :post]
 
   # get "flatarrow/testone"
