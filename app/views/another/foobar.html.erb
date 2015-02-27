@@ -1,4 +1,16 @@
-<h1>Another#foobar</h1>
+<% require "base64" %>
+<% require "open-uri" %>
+
+<% imags1= Base64.strict_encode64(Rails.application.assets['success-icon.png'].to_s) %>
+
+<%= imags1 %>
+
+<script>
+    window.god = "<%=imags1 %>"
+</script>
+
+<img src=<%= "data:image/png;base64," + imags1 %>/>
+
 <p>Find me in app/views/another/foobar.html.erb</p>
 
 <h1>People</h1>
@@ -18,8 +30,9 @@
   same templates.</p>
 
 <%= javascript_include_tag "knockout" %>
-<%= javascript_include_tag "another" %>
+
 <%= javascript_include_tag "underscore" %>
+<%= javascript_include_tag "another" %>
 
 <script type="application/javascript">
     /* ---- Begin integration of Underscore template engine with Knockout. Could go in a separate file of course. ---- */
