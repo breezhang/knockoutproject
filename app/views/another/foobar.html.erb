@@ -38,7 +38,7 @@
 <script type="application/javascript">
     /* ---- Begin integration of Underscore template engine with Knockout. Could go in a separate file of course. ---- */
     ko.underscoreTemplateEngine = function () {
-    }
+    };
     ko.underscoreTemplateEngine.prototype = ko.utils.extend(new ko.templateEngine(), {
         renderTemplateSource: function (templateSource, bindingContext, options) {
             // Precompile and cache the templates for efficiency

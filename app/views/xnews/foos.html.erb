@@ -1,0 +1,28 @@
+<h1>Xnews#foos</h1>
+<p>Find me in app/views/xnews/foos.html.erb</p>
+
+<table id="3587" class="table" data-bind="visible: render">
+  <caption data-bind="visible: showcasing">Optional table caption.</caption>
+  <thead>
+  <tr>
+    <th>No</th>
+    <th>ID</th>
+    <th>MSG</th>
+    <th>STATE</th>
+  </tr>
+  </thead>
+  <tbody data-bind="foreach: query">
+  <tr>
+    <th scope="row" data-bind="text:line"></th>
+    <td data-bind="text:id, click: $parent.clickfn"></td>
+    <td data-bind="text:msg"></td>
+    <td data-bind="text:state"></td>
+  </tr>
+
+  </tbody>
+</table>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "underscore" %>
+<%= javascript_include_tag "knockout" %>
+<%= javascript_include_tag "knockout.mapping" %>
+<%= javascript_include_tag :xnews %>
