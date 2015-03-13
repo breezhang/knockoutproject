@@ -41,3 +41,6 @@ $ ->
     count: 1, query: [new cpoco(3, 2, 3, 4), new cpoco(1, 2, 3, 4)], render: false, showcasing: false
   }, htmlconsole)
   htmlconsole.render(true)
+
+# magic browserify-rails use require import coffee combo muti coffe file over node
+require('as')

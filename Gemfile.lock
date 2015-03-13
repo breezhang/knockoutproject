@@ -50,6 +50,8 @@ GEM
     autoprefixer-rails (5.1.5)
       execjs
       json
+    browserify-rails (0.7.5)
+      sprockets (~> 2.0)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -125,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass!
+  browserify-rails (~> 0.7)
   coffee-rails (~> 3.2.1)
   jquery-rails
   knockoutjs-rails!

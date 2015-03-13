@@ -67,5 +67,6 @@ module Backboneproject
 
     config.assets.paths << Rails.root.join('app/assets/html/template')
     config.assets.register_mime_type('text/html', '.html')
+    config.browserify_rails.commandline_options = "-t coffeeify --extension=\".js.coffee\""
   end
 end
