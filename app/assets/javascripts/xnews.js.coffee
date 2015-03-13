@@ -43,4 +43,6 @@ $ ->
   htmlconsole.render(true)
 
 # magic browserify-rails use require import coffee combo muti coffe file over node
-require('as')
+foo1 = require('as')
+console.dir new foo1(1, 2, 3, 4)
+
