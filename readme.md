@@ -6,6 +6,8 @@ same as before
 
 combo knock js  other stuff
 
+magic tech https://github.com/browserify-rails/browserify-rails 
+
 
 
 
